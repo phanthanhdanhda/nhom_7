@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
+import 'notification_screen.dart';
 import 'video_screen.dart';  // Import VideoScreen
 import 'account_screen.dart';
 import 'market_screen.dart';
@@ -28,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
     const VideoScreen(videoAsset: 'assets/sample_video.mp4'),
     const AccountScreen(),
     const MarketScreen(),
+    const NotificationScreen()
   ];
 
   // Custom function to change the active and inactive colors for the BottomNavigationBar
@@ -41,15 +43,15 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('Main Screen'),
       ),
-      body: _screens[_currentIndex],
+      body: _screens[_currentIndex], // Ensure _screens has 5 items
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            if (index == 1) {  // If Video Screen is tapped, set the right video asset
-              // Use a sample asset or a dynamic asset depending on your logic
-              _screens[1] = VideoScreen(videoAsset: _videoAssets[index]);
+            if (index == 1) {
+              // Ensure index is within range of _videoAssets
+              _screens[1] = VideoScreen(videoAsset: _videoAssets[0]); // Fixed access to a valid video asset
             }
           });
         },
@@ -69,6 +71,10 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart, color: _getIconColor(3)),
             label: 'Market',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications, color: _getIconColor(4)), // Changed Friend to Notifications
+            label: 'Notifications',
           ),
         ],
         type: BottomNavigationBarType.fixed,

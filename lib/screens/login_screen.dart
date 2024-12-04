@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             // Adding the logo
             Image.asset(
-              'assets/facebook_logo.png', // Replace with the actual path to your logo image
+              'assets/facebook_tab_logo.png', // Replace with the actual path to your logo image
               height: 100,
             ),
             const SizedBox(height: 20),

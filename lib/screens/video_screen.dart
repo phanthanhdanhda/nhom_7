@@ -1,51 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoListScreen extends StatefulWidget {
-  const VideoListScreen({super.key});
-
-  @override
-  _VideoListScreenState createState() => _VideoListScreenState();
-}
-
-class _VideoListScreenState extends State<VideoListScreen> {
-  // Danh sách video (bao gồm tên video và đường dẫn đến tài nguyên)
-  final List<Map<String, String>> videos = [
-    {'title': 'Video 1', 'asset': 'assets/sample_video.mp4'},
-    {'title': 'Video 2', 'asset': 'assets/sample_video.mp4'},
-    {'title': 'Video 3', 'asset': 'assets/sample_video.mp4'},
-    {'title': 'Video 4', 'asset': 'assets/sample_video.mp4'},
-    // có thể thêm nhiều video ở đây
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Video List")),
-      body: ListView.builder(
-        itemCount: videos.length,
-        itemBuilder: (context, index) {
-          final video = videos[index];
-
-          return ListTile(
-            contentPadding: const EdgeInsets.all(8),
-            leading:const Icon(Icons.video_library, size: 40), // Thêm icon video
-            title: Text(video['title']!), // Tiêu đề video
-            onTap: () {
-              // Khi nhấn vào một video, chuyển đến màn hình video
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => VideoScreen(videoAsset: video['asset']!),
-                ),
-              );
-            },
-          );
-        },
-      ),
-    );
-  }
-}
+import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
   final String videoAsset;
@@ -95,9 +52,7 @@ class _VideoScreenState extends State<VideoScreen> {
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  _controller.value.isPlaying
-                      ? _controller.pause()
-                      : _controller.play();
+                  _controller.value.isPlaying ? _controller.pause() : _controller.play();
                 });
               },
               child: Text(

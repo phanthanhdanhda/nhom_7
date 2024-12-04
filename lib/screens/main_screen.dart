@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nhom_7/screens/video_list_screen.dart';
 import 'home_screen.dart';
 import 'video_screen.dart';  // Import VideoScreen
 import 'account_screen.dart';
@@ -15,17 +16,15 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<String> _videoAssets = [
-    'assets/sample_video.mp4',
-    'assets/sample_video.mp4',
-    'assets/sample_video.mp4',
-    'assets/sample_video.mp4',
+    '/sample_video.mp4',
+    '/siu.mp4',
   ];
 
   // List of screens (you might need to modify this based on your logic)
   final List<Widget> _screens = [
     const HomeScreen(),
     // Modify this to use VideoScreen and pass a video asset
-    const VideoScreen(videoAsset: 'assets/sample_video.mp4'),
+    const VideoListScreen(),
     const AccountScreen(),
     const MarketScreen(),
   ];
@@ -47,10 +46,6 @@ class _MainScreenState extends State<MainScreen> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            if (index == 1) {  // If Video Screen is tapped, set the right video asset
-              // Use a sample asset or a dynamic asset depending on your logic
-              _screens[1] = VideoScreen(videoAsset: _videoAssets[index]);
-            }
           });
         },
         items: [

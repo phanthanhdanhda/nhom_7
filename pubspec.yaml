@@ -30,23 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  video_player: ^2.5.0
-
-dev-dependencies:
-  flutter:
-    assets:
-      - assets/sample_video.mp4  # Đảm bảo thêm video
-      - assets/sample_video_2.mp4  # Thêm video thứ hai nếu có
-      - assets/sample_video_3.mp4
-      - assets/sample_video_4.mp4
-      - assets/avatar1.jpg        # Thêm ảnh đại diện
-      - assets/avatar2.jpg        # Thêm ảnh đại diện thứ hai
-      - assets/avatar3.jpg
-      - assets/avatar4.jpg
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  video_player: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -64,8 +51,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
-
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -102,3 +87,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  assets:
+    - assets/

@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   // List of screens (you might need to modify this based on your logic)
   final List<Widget> _screens = [
      // HomeScreen(),
-    const HomeScreen(),
+    HomeScreen(),
     // Modify this to use VideoScreen and pass a video asset
     const VideoScreen(videoAsset: 'assets/sample_video.mp4'),
     const AccountScreen(),

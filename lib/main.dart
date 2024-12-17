@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Facebook-like Interface',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      // ),
+      debugShowCheckedModeBanner: false, // Removes the debug ribbon
       home: const LoginScreen(),
     );
   }

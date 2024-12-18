@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Phương thức gọi API
   Future<List<postPost>> fetchPosts() async {
-    final String baseUrl= ApiString.url;
+    final String baseUrl= ApiString.url + "/api/PostsApi";
     final response= await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);

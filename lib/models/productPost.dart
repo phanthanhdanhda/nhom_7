@@ -1,34 +1,25 @@
 class productPost {
-  productPost({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.image,
-    required this.description,
-  });
-
-  final int? id;
-  final String? name;
+  final int id;
+  final String? name; // Cho phép null
+  final String? description;
   final double? price;
   final String? image;
-  final String? description;
 
-  factory productPost.fromJson(Map<String, dynamic> json){
+  productPost({
+    required this.id,
+    this.name,
+    this.description,
+    this.price,
+    this.image,
+  });
+
+  factory productPost.fromJson(Map<String, dynamic> json) {
     return productPost(
-      id: json["id"],
-      name: json["name"],
-      price: json["price"],
-      image: json["image"],
-      description: json["description"],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? 'Unknown Name', // Giá trị mặc định nếu null
+      description: json['description'] ?? 'No description available',
+      price: json['price'] != null ? json['price'].toDouble() : 0.0,
+      image: json['image'], // Giữ null nếu không có giá trị
     );
   }
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "price": price,
-    "image": image,
-    "description": description,
-  };
-
 }
